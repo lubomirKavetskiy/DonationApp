@@ -11,7 +11,7 @@ const App = () => {
           fontFamily: getFontFamily('Inter', '900'),
           fontSize: 60,
         }}>
-        Hello
+        Hello12e
       </Text>
     </SafeAreaView>
   );
