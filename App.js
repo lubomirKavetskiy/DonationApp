@@ -1,19 +1,13 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 
-import {SafeAreaView, Text} from 'react-native';
-import {getFontFamily} from './android/app/src/main/assets/custom/helper';
+import MainNavigation from './navigation/MainNavigation';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Text
-        style={{
-          fontFamily: getFontFamily('Inter', '900'),
-          fontSize: 60,
-        }}>
-        Hello12e
-      </Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <MainNavigation />
+    </NavigationContainer>
   );
 };
 
