@@ -4,9 +4,9 @@ import {number, string} from 'prop-types';
 
 import style from './style';
 
-const Header = ({title, types}) => {
+const Header = ({title, type, color}) => {
   const styleToApply = () => {
-    switch (types) {
+    switch (type) {
       case 1:
         return style.title1;
       case 2:
@@ -20,19 +20,21 @@ const Header = ({title, types}) => {
 
   return (
     <View>
-      <Text style={styleToApply(types)}>{title}</Text>
+      <Text style={[styleToApply(type), color && {color}]}>{title}</Text>
     </View>
   );
 };
 
 Header.propTypes = {
   title: string,
-  types: number,
+  type: number,
+  color: string,
 };
 
 Header.defaultProps = {
   title: '',
-  types: 1,
+  type: 1,
+  color: '#000',
 };
 
 export default Header;

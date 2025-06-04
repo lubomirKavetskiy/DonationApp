@@ -1,7 +1,5 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 import globalStyles from '../../assets/styles/globalStyle';
 import style from './style';
@@ -9,18 +7,18 @@ import style from './style';
 // Components
 import Header from '../../components/Header/Header';
 import Badge from '../../components/Badge/Badge';
+import Search from '../../components/Search/Search';
+import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 
 const Home = () => {
   const {bgWhite, flex} = globalStyles;
   return (
     <SafeAreaView style={[bgWhite, flex]}>
-      <Header title="Test11" types={1} />
-      <Badge title="Badge" />
-      <FontAwesomeIcon
-        icon={faSearch}
-        size={24}
-        color="black"
-        style={style.icon}
+      <SingleDonationItem
+        uri={require('../../assets/images/cactus.jpg')}
+        badgeTitle="Environment"
+        donationTitle="Tree cactus"
+        price={44}
       />
     </SafeAreaView>
   );
