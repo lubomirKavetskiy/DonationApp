@@ -1,25 +1,65 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  Pressable,
+} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
 
 import globalStyles from '../../assets/styles/globalStyle';
 import style from './style';
 
 // Components
 import Header from '../../components/Header/Header';
-import Badge from '../../components/Badge/Badge';
+import {resetUserState} from '../../redux/reducers/User';
 import Search from '../../components/Search/Search';
-import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 
 const Home = () => {
   const {bgWhite, flex} = globalStyles;
+  const {firstName, lastName, profileImage} =
+    useSelector(state => state.user) ?? {};
+  const categories = useSelector(state => state.categories) ?? {};
+  console.log({categories});
+  const dispatch = useDispatch();
+  dispatch(resetUserState());
+  console.log({profileImage});
+
   return (
     <SafeAreaView style={[bgWhite, flex]}>
-      <SingleDonationItem
-        uri={require('../../assets/images/cactus.jpg')}
-        badgeTitle="Environment"
-        donationTitle="Tree cactus"
-        price={44}
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={style.header}>
+          <View>
+            <Text style={style.headerIntoText}>Hello,</Text>
+            <View style={style.userName}>
+              <Header
+                title={`${firstName} ${lastName[0]}. 👋`}
+                type={1}
+                color="#000"
+              />
+            </View>
+          </View>
+          <View style={style.profileImageContainer}>
+            <Image
+              source={profileImage}
+              style={style.profileImage}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+        <View style={style.searchBox}>
+          <Search />
+        </View>
+        <Pressable style={style.highlightedImageWrapper}>
+          <Image
+            source={require('../../assets/images/highlighted_image.png')}
+            style={style.highlightedImage}
+            resizeMode="contain"
+          />
+        </Pressable>
+      </ScrollView>
     </SafeAreaView>
   );
 };

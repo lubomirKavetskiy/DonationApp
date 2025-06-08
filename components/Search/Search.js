@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {func} from 'prop-types';
+import {func, string} from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Pressable, TextInput} from 'react-native';
@@ -7,7 +7,7 @@ import {Pressable, TextInput} from 'react-native';
 // Styles
 import style from './style';
 
-const Search = ({onSearch}) => {
+const Search = ({onSearch, placeholder}) => {
   const [search, setSearch] = React.useState('');
   const textInputRef = useRef(null);
 
@@ -26,7 +26,7 @@ const Search = ({onSearch}) => {
       <TextInput
         style={style.searchInput}
         ref={textInputRef}
-        placeholder="Search"
+        placeholder={placeholder}
         placeholderTextColor="#999"
         value={search}
         onChangeText={handleChangeSearch}
@@ -37,10 +37,12 @@ const Search = ({onSearch}) => {
 
 Search.propTypes = {
   onSearch: func,
+  placeholder: string,
 };
 
 Search.defaultProps = {
   onSearch: () => {},
+  placeholder: 'Search',
 };
 
 export default Search;
