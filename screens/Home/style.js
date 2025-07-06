@@ -40,6 +40,16 @@ const style = StyleSheet.create({
     marginTop: verticalScale(20),
     borderRadius: horizontalScale(12),
   },
+  categoryHeader: {
+    marginHorizontal: horizontalScale(24),
+    marginVertical: verticalScale(16),
+  },
+  categories: {
+    marginLeft: horizontalScale(24),
+  },
+  categoryItem: {
+    marginRight: horizontalScale(10),
+  },
 });
 
 export default style;
