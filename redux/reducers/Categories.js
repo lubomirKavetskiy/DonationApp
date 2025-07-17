@@ -65,9 +65,7 @@ export const Categories = createSlice({
     updateSelectedCategoryId(state, action) {
       state.selectedCategoryId = action.payload.categoryId;
     },
-    resetCategoriesState() {
-      return initialState;
-    },
+    resetCategoriesState: () => initialState,
   },
 });
 

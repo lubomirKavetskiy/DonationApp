@@ -4,8 +4,10 @@ import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   image: {
-    width: horizontalScale(160),
+    width: horizontalScale(140),
     height: verticalScale(160),
+    borderRadius: horizontalScale(20),
+    backgroundColor: '#f0f0f0',
   },
   badgeContainer: {
     position: 'absolute',
